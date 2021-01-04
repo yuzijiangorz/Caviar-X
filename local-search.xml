@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>在C++中使用二分查找</title>
+    <link href="/2021/01/04/binary-search-in-cpp/"/>
+    <url>/2021/01/04/binary-search-in-cpp/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>注: 本文的代码借鉴了<a href="https://www.cnblogs.com/wkfvawl/p/9475939.html">C++ STL中的Binary search（二分查找）</a>,侵删</p></blockquote><p>果然最近写太多Java了C++都不会了</p><p><del>差点都忘了自己的本职工作是OIER了…</del></p><p>其实二分查找的思路超级简单，但是细节非常多</p><p><del>其实最重要的还是我脑袋不行，三天两头忘记事…</del></p><p>二分查找代码:</p><p>不递归:</p><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">binarySearch</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">,</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>    <span class="token keyword">int</span> left <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token keyword">int</span> right<span class="token operator">=</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;=</span>right<span class="token punctuation">)</span>    <span class="token punctuation">&#123;</span>        <span class="token keyword">int</span> mid <span class="token operator">=</span><span class="token punctuation">(</span>left<span class="token operator">+</span>right<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">==</span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token punctuation">&#123;</span>            <span class="token keyword">return</span> mid<span class="token punctuation">;</span>        <span class="token punctuation">&#125;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">></span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token punctuation">&#123;</span>            left<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>        <span class="token punctuation">&#125;</span>        <span class="token keyword">else</span>        <span class="token punctuation">&#123;</span>            right <span class="token operator">=</span>mid<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>        <span class="token punctuation">&#125;</span>    <span class="token punctuation">&#125;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token comment">//适合像我这样的菜鸡使用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><p>递归</p><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">recBinarySearch</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span> left<span class="token punctuation">,</span><span class="token keyword">int</span> right<span class="token punctuation">,</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>left<span class="token operator">></span>right<span class="token punctuation">)</span>    <span class="token punctuation">&#123;</span>        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span>    <span class="token keyword">int</span> mid <span class="token operator">=</span><span class="token punctuation">(</span>left<span class="token operator">+</span>right<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">==</span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token punctuation">&#123;</span>        <span class="token keyword">return</span> mid<span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">></span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token punctuation">&#123;</span>        <span class="token keyword">return</span> <span class="token function">recBinarySearch</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>right<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span>    <span class="token keyword">else</span>    <span class="token punctuation">&#123;</span>        <span class="token keyword">return</span> <span class="token function">recBinarySearch</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span>mid<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>algorithm</category>
+      
+      <category>C++</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>coding</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>在java中使用Clip播放音乐</title>
     <link href="/2021/01/04/use-clip-to-play-music-in-java/"/>
     <url>/2021/01/04/use-clip-to-play-music-in-java/</url>
@@ -20,7 +47,7 @@
     
     <tags>
       
-      <tag>program</tag>
+      <tag>coding</tag>
       
     </tags>
     
