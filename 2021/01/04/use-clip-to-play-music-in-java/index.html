@@ -241,7 +241,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 分钟前
+                  本文最后更新于：6 分钟前
                 
               </p>
             
@@ -271,7 +271,7 @@
     <span class="token keyword">private</span> <span class="token class-name">Boolean</span> istmp<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> tmplocal<span class="token operator">=</span><span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">"user.dir"</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\\poster.wav"</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token class-name">Convert_mp3_to_wav</span><span class="token punctuation">(</span><span class="token class-name">String</span> mp3local<span class="token punctuation">,</span><span class="token class-name">String</span> wavLocal<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">&#123;</span>
-        <span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"ffplay -i "</span><span class="token operator">+</span>mp3local<span class="token operator">+</span><span class="token string">" -f wav "</span><span class="token operator">+</span>wavLocal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"ffmpeg -i "</span><span class="token operator">+</span>mp3local<span class="token operator">+</span><span class="token string">" -f wav "</span><span class="token operator">+</span>wavLocal<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">play</span><span class="token punctuation">(</span><span class="token class-name">String</span> musicPath<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">&#123;</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>musicPath<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">".mp3"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
