@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="CaviarX">
   <meta name="keywords" content="">
-  <title>在C++中使用二分查找 - CaviarX的博客</title>
+  <title>Linus Benedict Torvalds经典语录 - CaviarX的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -170,7 +170,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="在C++中使用二分查找">
+            <span class="h2" id="subtitle" title="Linus Benedict Torvalds经典语录">
               
             </span>
 
@@ -185,8 +185,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-04 19:11" pubdate>
-        2021年1月4日 晚上
+      <time datetime="2021-01-11 21:11" pubdate>
+        2021年1月11日 晚上
       </time>
     </span>
   
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      216 字
+      742 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      7
        分钟
     </span>
   
@@ -237,68 +237,48 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">在C++中使用二分查找</h1>
+            <h1 style="display: none">Linus Benedict Torvalds经典语录</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：7 天前
+                  本文最后更新于：1 分钟前
                 
               </p>
             
             <div class="markdown-body">
-              <blockquote>
-<p>注: 本文的代码借鉴了<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wkfvawl/p/9475939.html">C++ STL中的Binary search（二分查找）</a>,侵删</p>
-</blockquote>
-<p>果然最近写太多Java了C++都不会了</p>
-<p><del>差点都忘了自己的本职工作是OIER了…</del></p>
-<p>其实二分查找的思路超级简单，但是细节非常多</p>
-<p><del>其实最重要的还是我脑袋不行，三天两头忘记事…</del></p>
-<p>二分查找代码:</p>
-<p>不递归:</p>
-<div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">binarySearch</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">,</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> left <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> right<span class="token operator">=</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;=</span>right<span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> mid <span class="token operator">=</span><span class="token punctuation">(</span>left<span class="token operator">+</span>right<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">==</span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">></span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            left<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">else</span>
-        <span class="token punctuation">&#123;</span>
-            right <span class="token operator">=</span>mid<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">//适合像我这样的菜鸡使用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-<p>递归</p>
-<div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">recBinarySearch</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span> left<span class="token punctuation">,</span><span class="token keyword">int</span> right<span class="token punctuation">,</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>left<span class="token operator">></span>right<span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">int</span> mid <span class="token operator">=</span><span class="token punctuation">(</span>left<span class="token operator">+</span>right<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">==</span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">></span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token function">recBinarySearch</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>right<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">else</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token function">recBinarySearch</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span>mid<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+              <ul>
+<li>注: 本文中可能含有r18内容，请谨慎观看</li>
+</ul>
+<ul>
+<li>林纳斯·本纳第克特·托瓦兹（Linus Benedict Torvalds，1969年12月28日- ），芬兰赫尔辛基人，著名的电脑程序员，Linux内核的发明人及该计划的合作者，毕业于赫尔辛基大学计算机系，1997年至2003年在美国加州硅谷任职于全美达公司（Transmeta Corporation），现受聘于开放源代码开发实验室（OSDL：Open Source Development Labs, Inc），全力开发Linux内核。与妻子托芙（Tove，芬兰前女子空手道冠军）育有三个女孩。著有自传《乐者为王》。</li>
+</ul>
+<h1 id="正片开始"><a href="#正片开始" class="headerlink" title="正片开始"></a>正片开始</h1><ul>
+<li>NVIDA f**k you</li>
+</ul>
+<p><img src="https://pic3.zhimg.com/80/v2-8b8aaa08ec349e63987f9f2db612f3ab_1440w.jpg?source=1940ef5c" srcset="/img/loading.gif"></p>
+<ul>
+<li>不瞒你说，那时候我能带女孩子回家的唯一原因，就是她们要我给她们辅导数学。就算是辅导数学，我带女孩子回家的次数也不多，而且还都不是我主动提出的。但我爸爸就是心存幻想，老觉得她们来我家不只是为了补习数学。（在他看来，她们都认同他的“硕鼻＝硕人”等式，所以觉得她们大概都是对我感兴趣才来的。）要是她们真的想找一个“数学男”来玩点刺激的，找我肯定找错人了，我都没有好好配合过她们。本来就是嘛，我就没听懂过她们说的“养大型宠物”到底还有什么意思。（Heavy Petting，意指性挑逗、性爱抚）我试过花很长时间照顾隔壁邻居家那只7公斤重的宠物猫，还是没弄明白这有什么大不了的。</li>
+</ul>
+<ul>
+<li><p>XML是垃圾。 没有任何理由。 XML对于人类而言是令人讨厌的解析，甚至对于计算机而言也是如此。 这个可怕的垃圾根本没有理由存在。</p>
+</li>
+<li><p>EFI是英特尔的另一项脑子抽了之后开发出来的东西（第一个是ACPI）。</p>
+</li>
+<li><p>我对Marh内核的个人看法不是很高。 坦白说,一坨屎山代码。 它包含你可能犯的所有设计错误，甚至还增加了一些他自己的。</p>
+</li>
+<li><p>实际上，OS X在某些方面要比Windows差。 他们的文件系统是很完美的一个垃圾 (谷歌翻译迷惑行为)</p>
+</li>
+<li><p>微软并不邪恶，他们只是制造垃圾OS</p>
+</li>
+<li><p>我认为开发OpenBSD的人是一堆”自慰”的猴子</p>
+</li>
+<li><p>我显然觉得开发Marh内核(以及 开发FreeBSD）的人是无能的白痴。</p>
+</li>
+<li><p>GPL为每个人都提供了机会，成绩卓著，这是人类的一个巨大的进步。可是，所有创新都应纳入GPL吗？ 这他妈的完全不可能，应由开发者自行决定是使用GPL还是使用其他保护版权的方法。令我几乎发疯的是，理查德·斯托曼认为非黑即白，别无它途，由此产生了不必要的政治划分。</p>
+</li>
+</ul>
+<p>以后慢慢增加</p>
+
             </div>
             <hr>
             <div>
@@ -307,9 +287,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/algorithm/">algorithm</a>
-                    
-                      <a class="hover-with-bg" href="/categories/C/">C++</a>
+                      <a class="hover-with-bg" href="/categories/%E9%97%B2%E8%AF%9D/">闲话</a>
                     
                   </div>
                 
@@ -317,7 +295,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/coding/">coding</a>
+                      <a class="hover-with-bg" href="/tags/%E9%97%B2%E8%AF%9D/">闲话</a>
                     
                   </div>
                 
@@ -330,18 +308,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/11/linus-trovalds-classic-saying/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Linus Benedict Torvalds经典语录</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/04/use-clip-to-play-music-in-java/">
-                        <span class="hidden-mobile">在java中使用Clip播放音乐</span>
+                      <a href="/2021/01/04/binary-search-in-cpp/">
+                        <span class="hidden-mobile">在C++中使用二分查找</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
